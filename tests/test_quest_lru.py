@@ -353,6 +353,16 @@ from src.quest_lru import LRUCache
                 None,
             ],
         ),
+        (
+            ["LRUCache", "put", "get", "put", "get", "get"],
+            [[1], [2, 1], [2], [3, 2], [2], [3]],
+            [None, None, 1, None, -1, 2],
+        ),
+        (
+            ["LRUCache","get","get","put","get","put","put","put","put","get","put"],
+            [[1],[6],[8],[12,1],[2],[15,11],[5,2],[1,15],[4,2],[4],[15,15]],
+            [None,-1,-1,None,-1,None,None,None,None,2,None]
+        )
     ],
 )
 def test_lru(operations: list, values: list, expected: list):
